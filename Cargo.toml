@@ -1,6 +1,6 @@
 [package]
 name = "serde_json"
-version = "1.0.79" # remember to update html_root_url
+version = "1.0.81" # remember to update html_root_url
 authors = ["Erick Tryzelaar <erick.tryzelaar@gmail.com>", "David Tolnay <dtolnay@gmail.com>"]
 license = "MIT OR Apache-2.0"
 description = "A JSON serialization file format"
@@ -14,7 +14,7 @@ rust-version = "1.36"
 
 [dependencies]
 serde = { version = "1.0.100", default-features = false }
-indexmap = { version = "1.5", optional = true }
+indexmap = { version = "1.5.2", features = ["std"], optional = true }
 itoa = "1.0"
 ryu = "1.0"
 
@@ -56,7 +56,7 @@ alloc = ["serde/alloc"]
 # Make serde_json::Map use a representation which maintains insertion order.
 # This allows data to be read into a Value and written back to a JSON string
 # while preserving the order of map keys in the input.
-preserve_order = ["indexmap"]
+preserve_order = ["indexmap", "std"]
 
 # Use sufficient precision when parsing fixed precision floats from JSON to
 # ensure that they maintain accuracy when round-tripped through JSON. This comes
